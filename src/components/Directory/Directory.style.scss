@@ -1,0 +1,27 @@
+.Directory{
+    max-height: 50vh;
+    max-width: 80vw;
+    margin: 0 auto;
+    
+    .MenuItem.men{
+        grid-area: men;
+    }
+    .MenuItem.women{
+        grid-area: women;
+    }
+    .MenuItem.shoes{
+        grid-area: shoes;
+    }
+    .MenuItem.bags{
+        grid-area: bags;
+    }
+
+    height: 60vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "women shoes men" "women bags men";
+    grid-gap: 1rem;
+
+}
