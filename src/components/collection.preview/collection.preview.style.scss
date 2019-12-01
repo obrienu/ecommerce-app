@@ -1,10 +1,20 @@
 .CollectionPreview {
-    height: 60vh;
+    height: 65vh;
     width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 2rem;
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.CollectionTitle{
+    width: 10%;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    border-bottom: solid 2px rgba(0, 0, 0, 0.363) ;
 }
 
 .Preview{

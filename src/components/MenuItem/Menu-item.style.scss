@@ -5,6 +5,8 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
 
     &:hover {
         cursor: pointer;

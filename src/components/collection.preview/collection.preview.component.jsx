@@ -8,7 +8,7 @@ class Preview extends Component{
         const {title, items} = this.props 
         return (
             <div className="CollectionPreview">
-                <h1>{title}</h1>
+                <h1 className="CollectionTitle">{title}</h1>
                 <div className="Preview">
                 {items.filter((item, index)=> index < 4).map(({id, ...item})=> (
                     <CollectionItem key={id} {...item} />
