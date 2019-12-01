@@ -1,5 +1,10 @@
 .Carousel{
-    width: 90%;
+    width: 90vw;
     height: 50vh;
     margin: 0 auto;
+
+    .carousel-height{
+        max-height: 50vh;
+    }
+
 }
