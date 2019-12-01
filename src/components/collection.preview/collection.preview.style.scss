@@ -1,0 +1,17 @@
+.CollectionPreview {
+    height: 60vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.Preview{
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
