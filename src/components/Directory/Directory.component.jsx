@@ -11,25 +11,25 @@ export class Directory extends Component {
         section : [
             {
                 id: 1,
-                title: "WOMEN",
+                title: "women",
                 subtitle: "SHOP NOW",
                 image: women,
             },
             {
                 id: 3,
-                title: "BAGS",
+                title: "bags",
                 subtitle: "SHOP NOW",
                 image: bag,
             },
             {
                 id: 4,
-                title: "SHOES",
+                title: "shoes",
                 subtitle: "SHOP NOW",
                 image: shoe,
             },
             {
                 id: 2,
-                title: "MEN",
+                title: "men",
                 subtitle: "SHOP NOW",
                 image: men,
             }
