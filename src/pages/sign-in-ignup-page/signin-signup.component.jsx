@@ -5,11 +5,11 @@ import SignIn from '../../components/signin/signin.component'
 const SignInSignUp = () => {
     return (
         <div className="SignInSignUp">
-            <div className="row">
-                <div className="col-md-6 section">
+            <div className="row justify-content-center">
+                <div className="col-md-5 section">
                     <SignIn />
                 </div>
-                <div className="col-md-6 section">
+                <div className="col-md-5 section">
                 
                 </div>
             </div>
