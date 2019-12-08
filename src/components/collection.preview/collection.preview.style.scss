@@ -1,5 +1,25 @@
+$desktop: 1000px;
+$tablet: 765px;
+$mobile: 500px;
+
+@mixin tablet {
+    @media(max-width: #{$tablet}){
+        @content;
+    }
+}
+@mixin mobile {
+    @media(max-width: #{$mobile}){
+        @content;
+    }
+}
+@mixin desktop {
+    @media(max-width: #{$desktop}){
+        @content;
+    }
+}
+
 .CollectionPreview {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -14,14 +34,26 @@
     padding-top: 0.5rem;
     padding-left: 1rem;
     border-bottom: solid 2px rgba(0, 0, 0, 0.363) ;
+    @include mobile{
+        font-size: 1.5rem;
+       }
 }
 
 .Preview{
     display: flex;
     flex-direction: row;
-    min-height: 50vh;
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem;
+
+
+    @include mobile{
+       justify-content: space-around;
+    
+       }
+    @include tablet{
+       justify-content: space-around;
+    
+       }
 }

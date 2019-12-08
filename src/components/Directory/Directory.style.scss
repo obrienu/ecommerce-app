@@ -1,7 +1,20 @@
+$tablet: 765px;
+$mobile: 500px;
+
+@mixin tablet {
+    @media(max-width: #{$tablet}){
+        @content;
+    }
+}
+@mixin mobile {
+    @media(max-width: #{$mobile}){
+        @content;
+    }
+}
+
+
 .Directory{
-    max-height: 40vh;
-    max-width: 80%;
-    margin: 1rem auto;
+ margin: 1rem auto;
 
     
     .MenuItem.men{
@@ -18,11 +31,18 @@
     }
 
     height: 60vh;
-    width: 100%;
+    width: 90%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas: "women shoes men" "women bags men";
     grid-gap: 1rem;
+
+    @include mobile{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas: "women men" "women men" "shoes bags" "shoes bags";
+    
+    }
 
 }
