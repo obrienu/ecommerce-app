@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './signin.style.scss'
 import FormInput from '../form.input/form.input.component'
 import Button from '../custom-button/custom.button.component'
+import {signInWithGoogle} from '../../firebase/firebase.utils'
+import {withRouter} from 'react-router-dom';
+
 export class SignIn extends Component {
     constructor(props){
         super(props)
@@ -12,6 +15,7 @@ export class SignIn extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
     }
 
     handleSubmit(event){
@@ -27,6 +31,10 @@ export class SignIn extends Component {
         this.setState({
             [name]: value
         })
+    }
+
+    handleRedirect(){
+        this.props.history.push(`${this.props.match.url}`)
     }
 
     render() {
@@ -54,9 +62,16 @@ export class SignIn extends Component {
 
                 <Button
                 type='submit'
-                color='primary'
+                color='dark'
                 >
                     SIGN IN
+                </Button>
+
+                <Button
+                color='primary'
+                onClick={signInWithGoogle}
+                > {''}
+                    Sign In With Google {''}
                 </Button>
 
                 </form>
@@ -66,4 +81,4 @@ export class SignIn extends Component {
     }
 }
 
-export default SignIn;
+export default withRouter(SignIn) ;

@@ -1,10 +1,26 @@
-.Header{
-    width: 100% !important;
-    margin : 0 auto 1rem;
+$mobile: 500px;
+
+@mixin mobile {
+    @media(max-width: #{$mobile}){
+        @content;
+    }
+}
+.container-fluid{
+    width: 100%;
     height: 10vh;
     padding-top: 1rem;
     background-color: whitesmoke;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+
+.Header{
+    width: 100% !important;
+    margin : 0 auto 1rem;
+    height: 10vh;
+  
 }
 .LogoContainer{
     padding-left: 1rem
@@ -14,11 +30,75 @@
     float: right;
 
     .Option{
-        margin: 1rem 1rem
+        margin: 1rem 1rem;
+        display:inline-block;
+        cursor: pointer;
+        color: blue;
+        @include mobile{
+            display: none;
+        }
+        &.MenuToggle{
+            display: none;
+            @include mobile{
+                display: inline-block;
+            }
+        }
     }
+
 }
 
 .ActiveLink{
     color: red;
     border-bottom: red solid 1px;
+    @include mobile{
+        border: none;
+        color: red;
+        text-decoration: none;
+        box-shadow: 2px 2px 5px rgba(173, 12, 12, 0.5);
+
+    }
 }
+
+.SideBar{
+    position: absolute;
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    width: 40%;
+    right: 0;
+    bottom:-20vh;
+    background-color: cornsilk;
+    text-align: center;
+    height: 20vh;
+    box-shadow: px px 5px rgba(0, 0, 0, 0.5);
+
+    .SideBarOptions{
+        margin-top: 0.5rem;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        height: 30%;
+        line-height: 2rem;
+    }
+}
+
+.Show{
+    @include mobile{
+        display: flex;
+        animation-name: glide;
+        animation-duration: 500ms;
+        animation-timing-function: ease-out;
+    }
+    @keyframes glide {
+        0%{
+            bottom: 0;
+            height:0;
+            width: 0;
+        }
+        100%{
+            bottom: -20vh;
+            height: 20vh;
+            width: 40%
+        }
+    }
+
+}
+
