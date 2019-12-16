@@ -3,24 +3,12 @@ import "./header.style.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
+import { toggleMenu } from "../../redux/header/header.action";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuBar: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(curState => ({
-      menuBar: !curState.menuBar
-    }));
-  }
-
   render() {
-    const { currentUser, history, match } = this.props;
+    const { history, match, currentUser } = this.props;
     return (
       <div className="container-fluid">
         <div className="Header container">
@@ -58,11 +46,11 @@ class Header extends Component {
                 SIGN IN
               </NavLink>
             )}
-            <span onClick={this.handleClick} className="Option MenuToggle">
+            <span onClick={this.props.toggleMenu} className="Option MenuToggle">
               X
             </span>
           </div>
-          <div className={this.state.menuBar ? "SideBar Show" : "SideBar"}>
+          <div className={this.props.showMenu ? "SideBar Show" : "SideBar"}>
             <NavLink
               activeClassName="ActiveLink"
               className="SideBarOptions"
@@ -80,9 +68,8 @@ class Header extends Component {
             {currentUser ? (
               <div
                 className="SideBarOptions"
-                onClick={() => {
-                  console.log("hello from logout");
-                  auth.signOut();
+                onClick={async () => {
+                  await auth.signOut();
                   history.push(`${match.url}`);
                 }}
               >
@@ -104,4 +91,13 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header);
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser,
+  showMenu: state.header.showMenu
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleMenu: () => dispatch(toggleMenu())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));

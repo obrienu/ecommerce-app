@@ -15,7 +15,6 @@ export class SignIn extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleRedirect = this.handleRedirect.bind(this);
   }
 
   async handleSubmit(event) {
@@ -38,10 +37,6 @@ export class SignIn extends Component {
     this.setState({
       [name]: value
     });
-  }
-
-  handleRedirect() {
-    this.props.history.push(`${this.props.match.url}`);
   }
 
   render() {
