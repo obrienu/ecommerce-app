@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 
 const ToggleMenu = ({ showMenu }) => {
   return (
-    <div class={showMenu ? "menu-btn close" : "menu-btn"}>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
-      <div class="btn-line"></div>
+    <div className={showMenu ? "menu-btn close" : "menu-btn"}>
+      <div className="btn-line"></div>
+      <div className="btn-line"></div>
+      <div className="btn-line"></div>
     </div>
   );
 };

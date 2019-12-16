@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import "./header.style.scss";
 import ToggleMenu from "../toggle.menu/toggle.menu.component";
+import CartIcon from "../cart.icon/cart.icon.component";
+import CartDropdown from "../cart.dropdown/cart.dropdown.component";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import { toggleMenu } from "../../redux/header/header.action";
+import { toggleCart } from "../../redux/cart/cart.action";
 
 class Header extends Component {
   render() {
@@ -47,9 +50,13 @@ class Header extends Component {
                 SIGN IN
               </NavLink>
             )}
+            <div onClick={this.props.toggleCart} className="Option Cart">
+              <CartIcon />
+            </div>
             <span onClick={this.props.toggleMenu} className="Option MenuToggle">
               <ToggleMenu />
             </span>
+            {this.props.showCart && <CartDropdown />}
           </div>
           <div className={this.props.showMenu ? "SideBar Show" : "SideBar"}>
             <NavLink
@@ -94,11 +101,13 @@ class Header extends Component {
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
-  showMenu: state.header.showMenu
+  showMenu: state.header.showMenu,
+  showCart: state.cart.showCart
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleMenu: () => dispatch(toggleMenu())
+  toggleMenu: () => dispatch(toggleMenu()),
+  toggleCart: () => dispatch(toggleCart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header));
