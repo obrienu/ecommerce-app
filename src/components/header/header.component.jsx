@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./header.style.scss";
+import ToggleMenu from "../toggle.menu/toggle.menu.component";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
@@ -47,7 +48,7 @@ class Header extends Component {
               </NavLink>
             )}
             <span onClick={this.props.toggleMenu} className="Option MenuToggle">
-              X
+              <ToggleMenu />
             </span>
           </div>
           <div className={this.props.showMenu ? "SideBar Show" : "SideBar"}>
