@@ -9,6 +9,10 @@ import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import { toggleMenu } from "../../redux/header/header.action";
 import { toggleCart } from "../../redux/cart/cart.action";
+import { selectShowCart } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import { selectHeaderMenu } from "../../redux/header/header.selector";
+import { createStructuredSelector } from "reselect";
 
 class Header extends Component {
   render() {
@@ -99,10 +103,10 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
-  showMenu: state.header.showMenu,
-  showCart: state.cart.showCart
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  showMenu: selectHeaderMenu,
+  showCart: selectShowCart
 });
 
 const mapDispatchToProps = dispatch => ({
