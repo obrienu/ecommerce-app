@@ -15,7 +15,7 @@ export class Shop extends Component {
         const collections = this.state.collections
 
         return (
-            <div className="ShopCollection">
+            <div className="ShopCollection container">
                 {collections.map(({id, ...OtherCollection}) => (
                 <Collection
                     key={id}

@@ -1,14 +1,9 @@
-$mobile: 500px;
+@import "../../assets/style/style.utils";
 
-@mixin mobile {
-  @media (max-width: #{$mobile}) {
-    @content;
-  }
-}
 .container-fluid {
   width: 100%;
   height: 10vh;
-  background-color: whitesmoke;
+  background-color: #fff;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -20,21 +15,32 @@ $mobile: 500px;
   height: 10vh;
 }
 .LogoContainer {
-  padding-left: 1rem;
-  margin: auto 0;
-  height: 80%;
+  .logo {
+    height: 4rem;
+  }
 }
 
 .Options {
   float: right;
 
   .Option {
-    margin: 1rem 1rem;
+    font-weight: 600;
+    font-family: "Libre Franklin", sans-serif;
+    margin: 0.8rem 1rem;
     display: inline-block;
     cursor: pointer;
-    color: blue;
+    color: $text-color;
+    &:hover {
+      text-decoration: none;
+      color: $warm;
+      @include easeOut;
+    }
     @include mobile {
       display: none;
+    }
+    @include tablet {
+      font-size: 500;
+      margin: 0.8rem 0.7rem;
     }
     &.MenuToggle {
       display: none;
@@ -46,13 +52,15 @@ $mobile: 500px;
     &.Cart {
       @include mobile {
         display: inline-block !important;
+        margin-right: 2rem;
+        margin-top: 1.3rem;
       }
     }
   }
 }
 
 .ActiveLink {
-  color: red;
+  color: $warm;
   border-bottom: red solid 1px;
   @include mobile {
     border: none;
@@ -70,16 +78,22 @@ $mobile: 500px;
   width: 40%;
   right: 0;
   bottom: -20vh;
-  background-color: cornsilk;
+  background-color: $background-color;
   text-align: center;
   height: 20vh;
   box-shadow: px px 5px rgba(0, 0, 0, 0.5);
-
+  border: solid $text-color 1px;
   .SideBarOptions {
+    color: $text-color;
     margin-top: 0.5rem;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     height: 30%;
     line-height: 2rem;
+    &:hover {
+      text-decoration: none;
+      color: $warm;
+      @include easeOut;
+    }
   }
 }
 

@@ -1,32 +1,18 @@
-$desktop: 1000px;
-$tablet: 765px;
-$mobile: 500px;
-
-@mixin tablet {
-  @media (max-width: #{$tablet}) {
-    @content;
-  }
-}
-@mixin mobile {
-  @media (max-width: #{$mobile}) {
-    @content;
-  }
-}
-@mixin desktop {
-  @media (max-width: #{$desktop}) {
-    @content;
-  }
-}
+@import "../../assets/style/style.utils";
 
 .CollectionItem {
   position: relative;
   padding: 0.5rem;
   height: 50vh;
-  width: 15rem;
+  width: 22%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background: $warm;
+  box-shadow: 5px 5px 10px rgba($text-color, 1);
+  margin-bottom: 1rem;
+  color: darkrn($text-color, 80%);
+
   &:hover,
   &:active {
     .Image {

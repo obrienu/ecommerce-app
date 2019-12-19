@@ -1,48 +1,32 @@
-$tablet: 765px;
-$mobile: 500px;
+@import "../../assets/style/style.utils";
 
-@mixin tablet {
-    @media(max-width: #{$tablet}){
-        @content;
-    }
-}
-@mixin mobile {
-    @media(max-width: #{$mobile}){
-        @content;
-    }
-}
+.Directory {
+  margin: 1rem auto;
 
+  .MenuItem.men {
+    grid-area: men;
+  }
+  .MenuItem.women {
+    grid-area: women;
+  }
+  .MenuItem.shoes {
+    grid-area: shoes;
+  }
+  .MenuItem.bags {
+    grid-area: bags;
+  }
 
-.Directory{
- margin: 1rem auto;
+  height: 60vh;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "women shoes men" "women bags men";
+  grid-gap: 1rem;
 
-    
-    .MenuItem.men{
-        grid-area: men;
-    }
-    .MenuItem.women{
-        grid-area: women;
-    }
-    .MenuItem.shoes{
-        grid-area: shoes;
-    }
-    .MenuItem.bags{
-        grid-area: bags;
-    }
-
-    height: 60vh;
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "women shoes men" "women bags men";
-    grid-gap: 1rem;
-
-    @include mobile{
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-areas: "women men" "women men" "shoes bags" "shoes bags";
-    
-    }
-
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: "women men" "women men" "shoes bags" "shoes bags";
+  }
 }

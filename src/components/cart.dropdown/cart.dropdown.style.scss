@@ -1,10 +1,4 @@
-$mobile: 500px;
-
-@mixin mobile {
-  @media (max-width: #{$mobile}) {
-    @content;
-  }
-}
+@import "../../assets/style/style.utils";
 
 .CartDropdown {
   position: absolute;
@@ -13,10 +7,10 @@ $mobile: 500px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px solid $text-color;
   background-color: white;
   top: 10vh;
-  right: 40px;
+  right: 0;
   z-index: 5;
   align-items: center;
   @include mobile {
@@ -28,5 +22,11 @@ $mobile: 500px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
+    color: $text-color;
   }
+}
+.EmptyMessage {
+  font-size: 1rem;
+  margin: 3rem auto;
+  color: $text-color;
 }

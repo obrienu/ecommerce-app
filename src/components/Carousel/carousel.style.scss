@@ -1,78 +1,76 @@
-$tablet: 765px;
-$mobile: 500px;
+@import "../../assets/style/style.utils";
 
-@mixin tablet {
-    @media(max-width: #{$tablet}){
-        @content;
+.Carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin: 0 auto 1rem;
+  background-color: $background-color; /* fallback for old browsers */
+
+  .Content {
+    width: 40%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+    .Title {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 600;
+      color: $warm;
+      margin: 0;
     }
-}
-@mixin mobile {
-    @media(max-width: #{$mobile}){
-        @content;
-    }
-}
-
-.Carousel{
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    margin: 1rem auto 1rem;
-    background-color:#9CECFB;  /* fallback for old browsers */
-    // background: -webkit-linear-gradient(to left, #0052D4, #65C7F7, #9CECFB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgb(180, 14, 14), rgba(139, 12, 12, 0.808), rgba(240, 57, 57, 0.425));  /* Chrome 10-25, Safari 5.1-6 */
-    // background: linear-gradient(to left, #0052D4, #65C7F7, #9CECFB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     
-    
-
-    .Content{
-        width: 40%;
-        height: 100%;
-        text-align: right;
-        padding-top: 3rem;
-
-        @include tablet{
-            width: 80%;
-            text-align: center;
-        }
-        @include mobile{
-            width: 100%;
-            text-align: center;
-        }
+    p {
+      font-family: "Libre Franklin", sans-serif;
+      color: $text-color;
+      font-weight: 500;
     }
 
-    .Image{
-        position: absolute;
-        width: 20%;
-        height: auto;
-        top: 4rem;
-        right: 5rem;
-        transform: scale(1);
-        animation-name: bounce;
-        animation-duration: 5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite ;
-        
-        @include tablet{
-            top: 6rem;
-            right: 3rem
-        }
-        @include mobile{
-           display: none
-        }
+    @include tablet {
+      width: 80%;
+      text-align: center;
+    }
+    @include mobile {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .Image {
+    position: absolute;
+
+    &.Image1 {
+      width: 22%;
+      height: auto;
+      bottom: 0;
+      left: 5rem;
     }
 
-        @keyframes bounce {
-            0%{
-                transform : scale(1); 
-            }   
-            
-            50%{
-                transform: scale(1.2); 
-            }
-            100%{
-                transform: scale(1); 
-            }
-        }
+    &.Image2 {
+      width: 22%;
+      height: auto;
+      bottom: 0;
+      right: 5rem;
+    }
 
-   
+    @include tablet {
+      top: 6rem;
+      right: 3rem;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
+  .warm {
+    background-color: #fff;
+    border: solid 1px $warm;
+    @include easeOut;
+    &:hover {
+      background-color: $warm;
+      border: solid 1px #fff;
+    }
+  }
 }

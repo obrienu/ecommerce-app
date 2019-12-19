@@ -3,7 +3,7 @@ import "./header.style.scss";
 import ToggleMenu from "../toggle.menu/toggle.menu.component";
 import CartIcon from "../cart.icon/cart.icon.component";
 import CartDropdown from "../cart.dropdown/cart.dropdown.component";
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import logo from "../../assets/logo.png";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
@@ -19,9 +19,9 @@ class Header extends Component {
     const { history, match, currentUser } = this.props;
     return (
       <div className="container-fluid">
-        <div className="Header container">
+        <div className="Header">
           <Link className="LogoContainer" to="/">
-            <Logo />
+            <img src={logo} alt="logo" className="logo" />
           </Link>
 
           <div className="Options">
