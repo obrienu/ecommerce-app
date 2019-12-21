@@ -1,2 +1,5 @@
 export const TOGGLE_CART = "TOGGLE_CART";
 export const ADD_ITEMS = "ADD_ITEMS";
+export const DELETE_ITEMS = "DELETE_ITEMS";
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
