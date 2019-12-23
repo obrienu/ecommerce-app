@@ -1,48 +1,23 @@
-import React, { Component } from 'react';
-import MenuItem from '../MenuItem/Menu-Item.component';
-import shoe from "./images/shoes.jpg"
-import bag from "./images/bag.jpg"
-import men from "./images/men.jpg"
-import women from "./images/women.jpg"
-import './Directory.style.scss'
+import React from "react";
+import MenuItem from "../MenuItem/Menu-Item.component";
+import "./Directory.style.scss";
+import { connect } from "react-redux";
+import { sectionSelector } from "../../redux/directory/directory.selector";
 
-export class Directory extends Component {
-    static defaultProps = {
-        section : [
-            {
-                id: 1,
-                title: "women",
-                subtitle: "SHOP NOW",
-                image: women,
-            },
-            {
-                id: 3,
-                title: "bags",
-                subtitle: "SHOP NOW",
-                image: bag,
-            },
-            {
-                id: 4,
-                title: "shoes",
-                subtitle: "SHOP NOW",
-                image: shoe,
-            },
-            {
-                id: 2,
-                title: "men",
-                subtitle: "SHOP NOW",
-                image: men,
-            }
-        ]
-    }
-    render() {
-        const menuItem = this.props.section.map(a => <MenuItem key={a.id} title={a.title} subtitle={a.subtitle} image={a.image} />)
-        return (
-            <div className="Directory">
-                {menuItem}
-            </div>
-        );
-    }
-}
+const Directory = ({ section }) => {
+  const menuItem = section.map(a => (
+    <MenuItem
+      key={a.id}
+      title={a.title}
+      subtitle={a.subtitle}
+      image={a.image}
+    />
+  ));
+  return <div className="Directory">{menuItem}</div>;
+};
 
-export default Directory;
+const mapStateToProps = state => ({
+  section: sectionSelector(state)
+});
+
+export default connect(mapStateToProps)(Directory);
