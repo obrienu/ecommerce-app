@@ -9,25 +9,29 @@ const initial_state = {
       id: 1,
       title: "women",
       subtitle: "SHOP NOW",
-      image: women
+      image: women,
+      linkUrl: "shop/women"
     },
     {
       id: 3,
       title: "bags",
       subtitle: "SHOP NOW",
-      image: bag
+      image: bag,
+      linkUrl: "shop/bags"
     },
     {
       id: 4,
       title: "shoes",
       subtitle: "SHOP NOW",
-      image: shoe
+      image: shoe,
+      linkUrl: "shop/shoes"
     },
     {
       id: 2,
       title: "men",
       subtitle: "SHOP NOW",
-      image: men
+      image: men,
+      linkUrl: "shop/men"
     }
   ]
 };

@@ -1,0 +1,22 @@
+@import "../../assets/style/style.utils";
+.collection-page {
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 2rem;
+    margin: 1rem auto 2rem;
+    color: $text-color;
+  }
+
+  .items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    & .collection-item {
+      margin-bottom: 2rem;
+    }
+  }
+}
