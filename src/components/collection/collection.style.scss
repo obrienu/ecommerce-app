@@ -1,13 +1,16 @@
 @import "../../assets/style/style.utils";
 .collection-page {
+  margin-top: 1rem;
   background-color: $background-color;
   display: flex;
   flex-direction: column;
+  @include borderShadow;
 
   .title {
     font-size: 2rem;
-    margin: 1rem auto 2rem;
-    color: $text-color;
+    margin: 1rem auto;
+    color: $warm;
+    @include borderBottom;
   }
 
   .items {
