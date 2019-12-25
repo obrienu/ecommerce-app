@@ -5,8 +5,11 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { selectCartTotal } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selector";
+import Paystack from "../../components/paystack/paystack.component";
 
-const CheckoutPage = ({ cartItems, cartItemsTotal }) => {
+const CheckoutPage = ({ cartItems, cartItemsTotal, user }) => {
+  const userEmail = user.email;
   return (
     <div className="checkout-page">
       <div className="checkout-header">
@@ -30,13 +33,17 @@ const CheckoutPage = ({ cartItems, cartItemsTotal }) => {
         <CheckoutItem cartItem={cartItem} key={cartItem.id} />
       ))}
       <div className="total">Total Price: #{cartItemsTotal}</div>
+      <div className="Paystack">
+        <Paystack total={cartItemsTotal} email={userEmail} />
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
-  cartItemsTotal: selectCartTotal
+  cartItemsTotal: selectCartTotal,
+  user: selectCurrentUser
 });
 
 export default connect(mapStateToProps)(CheckoutPage);
