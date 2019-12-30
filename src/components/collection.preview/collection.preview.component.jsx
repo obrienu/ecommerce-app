@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import CollectionItem from "../collection.item/collection.item.component";
 import "./collection.preview.style.scss";
+import { Link } from "react-router-dom";
 
 class Preview extends Component {
   render() {
-    const { title, items } = this.props;
+    const { title, items, urlParam } = this.props;
     return (
       <div className="CollectionPreview">
-        <h1 className="CollectionTitle">{title}</h1>
+        <Link to={`/shop/${urlParam}`} className="CollectionTitle">
+          {title}
+        </Link>
         <div className="Preview">
           {items
             .filter((item, index) => index < 4)

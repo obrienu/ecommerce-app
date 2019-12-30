@@ -7,6 +7,9 @@
   top: 35px;
   cursor: pointer;
   @include easeOut;
+  @include mobile {
+    top: 30px;
+  }
 
   .btn-line {
     width: 28px;

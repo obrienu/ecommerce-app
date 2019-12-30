@@ -18,9 +18,11 @@
     .Image {
       opacity: 0.8;
     }
-    .Button {
+    .ButtonDiv {
       opacity: 0.85;
-      display: inline-block;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
     }
   }
 
@@ -53,7 +55,7 @@
     float: left;
   }
 
-  .Button {
+  .ButtonDiv {
     opacity: 0.7;
     position: absolute;
     top: 14rem;
@@ -62,6 +64,9 @@
 
     @include desktop {
       top: 11rem;
+    }
+    @include mobile {
+      top: 6rem;
     }
   }
 }

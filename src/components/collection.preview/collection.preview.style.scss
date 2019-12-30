@@ -12,6 +12,7 @@
 }
 
 .CollectionTitle {
+  font-size: 2rem;
   color: $warm;
   width: 10%;
   padding-top: 0.5rem;
@@ -19,6 +20,10 @@
   border-bottom: solid 2px rgba($text-color, 0.363);
   @include mobile {
     font-size: 1.5rem;
+  }
+  &:hover {
+    text-decoration: none;
+    color: $text-color;
   }
 }
 

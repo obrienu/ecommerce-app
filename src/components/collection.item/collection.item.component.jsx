@@ -19,9 +19,11 @@ export const CollectionItem = ({ item, addItem }) => {
         <span className="ItemName">{name}</span>
         <span className="ItemPrice">#{price}</span>
       </div>
-      <CustomButton onClick={() => addItem(item)} color="outline-dark">
-        Add to Cart
-      </CustomButton>
+      <div className="ButtonDiv">
+        <CustomButton onClick={() => addItem(item)} color="outline-dark">
+          Add to Cart
+        </CustomButton>
+      </div>
     </div>
   );
 };
